@@ -1,0 +1,111 @@
+Fluent Bit v5.0.6
+* Copyright (C) 2015-2026 The Fluent Bit Authors
+* Fluent Bit is a CNCF graduated project under the Fluent organization
+* https://fluentbit.io
+
+______ _                  _    ______ _ _           _____  _____ 
+|  ___| |                | |   | ___ (_) |         |  ___||  _  |
+| |_  | |_   _  ___ _ __ | |_  | |_/ /_| |_  __   _|___ \ | |/' |
+|  _| | | | | |/ _ \ '_ \| __| | ___ \ | __| \ \ / /   \ \|  /| |
+| |   | | |_| |  __/ | | | |_  | |_/ / | |_   \ V //\__/ /\ |_/ /
+\_|   |_|\__,_|\___|_| |_|\__| \____/|_|\__|   \_/ \____(_)\___/
+
+
+[2026/06/03 12:12:25.096] [ info] [fluent bit] version=5.0.6, commit=, pid=1081
+[2026/06/03 12:12:25.100] [ info] [storage] ver=1.5.4, type=memory, sync=normal, checksum=off, max_chunks_up=128
+[2026/06/03 12:12:25.100] [ info] [simd    ] SSE2
+[2026/06/03 12:12:25.100] [ info] [cmetrics] version=2.1.4
+[2026/06/03 12:12:25.100] [ info] [ctraces ] version=0.7.1
+[2026/06/03 12:12:25.102] [ info] [input:cpu:cpu.0] initializing
+[2026/06/03 12:12:25.102] [ info] [input:cpu:cpu.0] storage_strategy='memory' (memory only)
+[2026/06/03 12:12:25.107] [ info] [input:mem:mem.1] initializing
+[2026/06/03 12:12:25.108] [ info] [input:mem:mem.1] storage_strategy='memory' (memory only)
+[2026/06/03 12:12:25.111] [ info] [input:netif:netif.2] initializing
+[2026/06/03 12:12:25.112] [ info] [input:netif:netif.2] storage_strategy='memory' (memory only)
+[2026/06/03 12:12:25.205] [ info] [input:disk:disk.3] initializing
+[2026/06/03 12:12:25.207] [ info] [input:disk:disk.3] storage_strategy='memory' (memory only)
+[2026/06/03 12:12:25.245] [ info] [sp] stream processor started
+[2026/06/03 12:12:25.250] [ info] [engine] Shutdown Grace Period=5, Shutdown Input Grace Period=2
+[2026/06/03 12:12:25.251] [ info] [output:stdout:stdout.0] worker #0 started
+{"date":1780488747.290011,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488747.290011,"value":35.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488747.309821,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488747.309821,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488749.25344,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488749.25344,"value":10},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488749.257679,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488749.257679,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488749.260771,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488749.260771,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488749.26349,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488749.26349,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488751.253016,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488751.253016,"value":10},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488751.258189,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488751.258189,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488751.25975,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488751.25975,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488751.26074,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488751.26074,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488753.25264,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488753.25264,"value":7.000000000000001},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488753.258343,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488753.258343,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488753.261482,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488753.261482,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488753.264762,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488753.264762,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488755.259369,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488755.259369,"value":11.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488755.264963,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488755.264963,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488755.269463,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488755.269463,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488755.271884,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488755.271884,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488757.254107,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488757.254107,"value":3},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488757.258354,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488757.258354,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488757.261813,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488757.261813,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488757.267223,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488757.267223,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488759.263442,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488759.263442,"value":6},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488759.270986,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488759.270986,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488759.275977,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488759.275977,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488759.284657,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488759.284657,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488761.268844,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488761.268844,"value":10},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488761.2733,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488761.2733,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488761.27771,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488761.27771,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488761.282497,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488761.282497,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488763.264942,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488763.264942,"value":3.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488763.277616,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488763.277616,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488763.284864,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488763.284864,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488763.290923,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488763.290923,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488765.251723,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488765.251723,"value":11},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488765.257637,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488765.257637,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488765.259354,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488765.259354,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488765.263663,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488765.263663,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488767.262372,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488767.262372,"value":7.000000000000001},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488767.270504,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488767.270504,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488767.27383,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488767.27383,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488767.276198,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488767.276198,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488769.255563,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488769.255563,"value":6.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488769.264532,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488769.264532,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488769.272474,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488769.272474,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488769.277367,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488769.277367,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488771.258783,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488771.258783,"value":6.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488771.263728,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488771.263728,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488771.267807,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488771.267807,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488771.270259,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488771.270259,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488773.252412,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488773.252412,"value":6.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488773.255472,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488773.255472,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488773.257528,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488773.257528,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488773.258483,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488773.258483,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488775.257231,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488775.257231,"value":4.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488775.26172,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488775.26172,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488775.26471,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488775.26471,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488775.266393,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488775.266393,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488777.253177,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488777.253177,"value":4.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488777.256544,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488777.256544,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488777.260522,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488777.260522,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488777.264586,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488777.264586,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488779.279661,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488779.279661,"value":33},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488779.292805,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488779.292805,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488779.303382,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488779.303382,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488779.311633,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488779.311633,"value":294912},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488781.601518,"metric":{"unit":"percent","name":"guest.cpu.util","type":"gauge"},"measure":{"timestamp":1780488781.601518,"value":18.5},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488781.607742,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488781.607742,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488781.613096,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488781.613096,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488781.618494,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488781.618494,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+[2026/06/03 12:13:02] [engine] caught signal (SIGTERM)
+[2026/06/03 12:13:02.795] [ warn] [engine] service will shutdown in max 5 seconds
+[2026/06/03 12:13:02.797] [ info] [engine] pausing all inputs..
+[2026/06/03 12:13:02.797] [ info] [input] pausing cpu.0
+[2026/06/03 12:13:03.342] [ info] [engine] pending chunk count: memory=3, filesystem=0; grace_timer=1
+{"date":1780488783.302495,"metric":{"unit":"percent","name":"guest.memory.used_percent","type":"gauge"},"measure":{"timestamp":1780488783.302495,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488783.324479,"metric":{"unit":"bytes","name":"guest.net.in.bytes","type":"cumulative"},"measure":{"timestamp":1780488783.324479,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+{"date":1780488783.337695,"metric":{"unit":"bytes","name":"guest.disk.read.bytes","type":"cumulative"},"measure":{"timestamp":1780488783.337695,"value":0},"resource":{"type":"instance","project_id":"test-project-uuid-5678","id":"test-instance-uuid-1234"}}
+[2026/06/03 12:13:04.256] [ info] [engine] service has stopped (0 pending tasks)
+[2026/06/03 12:13:04.262] [ info] [input] pausing cpu.0
+[2026/06/03 12:13:04.266] [ info] [output:stdout:stdout.0] thread worker #0 stopping...
+[2026/06/03 12:13:04.268] [ info] [output:stdout:stdout.0] thread worker #0 stopped
