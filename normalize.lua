@@ -38,7 +38,10 @@ function format_to_crms_schema(tag, timestamp, record)
         -- Memory Consumption Percentage Parsing
         metric_name = "guest.memory.used_percent"
         metric_unit = "percent"
-        value = record["Mem.used_p"] or 0.0
+        -- value = record["Mem.used_p"] or 0.0
+        local mem_total = record["Mem.total"] or 1
+        local mem_used = record["Mem.used"] or 0
+        value = (mem_used / mem_total) * 100
         
     elseif tag == "guest.net" then
         -- Network Traffic Parsing (Inbound Interface Bytes)
