@@ -1,0 +1,61 @@
+[SERVICE]
+    Flush           5
+    Daemon          Off
+    Log_Level       info
+    # Memory Usage Mitigation: Configured to maintain a target memory footprint of 50MB.
+    # Restricts the maximum buffer size allowed in memory for inputs before flushing data.
+    Mem_Buf_Limit   20M
+
+# =====================================================================
+# 1. Input Section: Continuous Telemetry Data Collection
+# =====================================================================
+[INPUT]
+    Name            cpu
+    Tag             guest.cpu
+    Interval_Sec    60
+
+[INPUT]
+    Name            mem
+    Tag             guest.memory
+    Interval_Sec    60
+
+[INPUT]
+    Name            netif
+    Tag             guest.net
+    Interval_Sec    60
+    Interface       eth0
+
+# =====================================================================
+# 2. Filter Section: Metadata Enrichment and Injection
+# =====================================================================
+[FILTER]
+    Name            record_modifier
+    Match           *
+    # Appends contextual metadata to every collected record.
+    # These variables will be dynamically resolved from the metadata server or system environment variables at runtime.
+    Record          resource.type instance
+    Record          resource.id ${INSTANCE_ID}
+    Record          resource.project_id ${PROJECT_ID}
+
+# =====================================================================
+# 3. Filter Section: Data Transformation & Standardization via Lua Scripting
+# =====================================================================
+[FILTER]
+    Name            lua
+    Match           *
+    script          normalize.lua
+    call            format_to_crms_schema
+
+# =====================================================================
+# 4. Output Section: Data Egress and Routing
+# =====================================================================
+[OUTPUT]
+    Name            http
+    Match           *
+    Host            <Metric_Gateway_IP>
+    Port            8080
+    URI             /v1/metrics
+    Format          json
+    # Fault Tolerance Configuration: Limits the number of transmission attempts 
+    # during network disruptions or endpoint availability failures before dropping the batch.
+    Retry_Limit     5

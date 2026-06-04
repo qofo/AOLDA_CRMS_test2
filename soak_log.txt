@@ -1,4 +1,0 @@
-Starting Fluent Bit...
-Fluent Bit started with PID: 2325
-TIMESTAMP                 CPU(%)     RSS(KB)   
-=== Soak Test Completed ===
