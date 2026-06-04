@@ -1,61 +1,73 @@
-[SERVICE]
-    Flush           5
-    Daemon          Off
-    Log_Level       info
-    # Memory Usage Mitigation: Configured to maintain a target memory footprint of 50MB.
-    # Restricts the maximum buffer size allowed in memory for inputs before flushing data.
-    Mem_Buf_Limit   20M
+service:
+  # 입력 주기
+  flush: 2
+  # 백그라운드 여부
+  daemon: "Off"
+  # 로그의 수준(error, warn, info, debug, trace)
+  log_level: info
+  # 최대 버퍼 크기
+  mem_buf_limit: 20M
+  # Fluent Bit 자체의 CPU/메모리 소모량 및 플러그인별 처리량(In/Out)을 Prometheus 포맷으로 모니터링할 수 있는 내장 HTTP 서버입니다. 
+  #http_server: "On" 
+  #http_listen: 0.0.0.0 
+  #http_port: 2020
 
-# =====================================================================
-# 1. Input Section: Continuous Telemetry Data Collection
-# =====================================================================
-[INPUT]
-    Name            cpu
-    Tag             guest.cpu
-    Interval_Sec    60
+# 1. 수집 단계
+pipeline:
+  inputs:
+    - name: cpu
+      tag: guest.cpu
+      interval_sec: 2
 
-[INPUT]
-    Name            mem
-    Tag             guest.memory
-    Interval_Sec    60
+    - name: mem
+      tag: guest.memory
+      interval_sec: 2
 
-[INPUT]
-    Name            netif
-    Tag             guest.net
-    Interval_Sec    60
-    Interface       eth0
+    - name: netif
+      tag: guest.net
+      interval_sec: 2
+      # interface: eth0
+      interface: ens3
+      # 수집하는 플러그인별로도 메모리 사용 제한을 걸 수도 있습니다
+      #mem_buf_limit: 10M
+	  # 수집된 측정값을 메모리에 적재하지 않고 바로 스토리지로 쓰기할 수도 있습니다
+	  # 추가로 위쪽 service에서 설정이 더 필요하지만 생략했습니다
+	  #storage.type: filesystem
 
-# =====================================================================
-# 2. Filter Section: Metadata Enrichment and Injection
-# =====================================================================
-[FILTER]
-    Name            record_modifier
-    Match           *
-    # Appends contextual metadata to every collected record.
-    # These variables will be dynamically resolved from the metadata server or system environment variables at runtime.
-    Record          resource.type instance
-    Record          resource.id ${INSTANCE_ID}
-    Record          resource.project_id ${PROJECT_ID}
+    - name: disk
+      tag: guest.disk
+      interval_sec: 2
 
-# =====================================================================
-# 3. Filter Section: Data Transformation & Standardization via Lua Scripting
-# =====================================================================
-[FILTER]
-    Name            lua
-    Match           *
-    script          normalize.lua
-    call            format_to_crms_schema
+# 2. 필터 단계
+  filters:
+    # key-value 필드를 추가하는 플러그인
+    # 여기서는 리소스ID와 프로젝트ID를 측정값에 추가하기 위해 사용했습니다
+    - name: record_modifier
+      match: "*"
+      records:
+        - resource_id ${INSTANCE_ID}
+        - project_id ${PROJECT_ID}
 
-# =====================================================================
-# 4. Output Section: Data Egress and Routing
-# =====================================================================
-[OUTPUT]
-    Name            http
-    Match           *
-    Host            <Metric_Gateway_IP>
-    Port            8080
-    URI             /v1/metrics
-    Format          json
-    # Fault Tolerance Configuration: Limits the number of transmission attempts 
-    # during network disruptions or endpoint availability failures before dropping the batch.
-    Retry_Limit     5
+    # 외부 lua 코드로 데이터를 정제합니다
+    - name: lua
+      match: "*"
+      script: normalize.lua
+      call: format_to_crms_schema
+
+# 3. 출력 단계
+  outputs:
+    # 로컬 파일로 확인하고 싶을 때 사용
+    # - name: stdout
+    #   match: "*"
+    #   format: json_lines
+    
+    - name: http
+      match: "*"분
+      host: 192.168.0.121
+      port: 8080
+      uri: /v1/metrics
+      format: json
+      headers:
+        - Content-Type application/json
+	  # 송신 실패 시 재시도 횟수도 설정할 수 있습니다
+      #retry_limit: 5
