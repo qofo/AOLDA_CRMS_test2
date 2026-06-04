@@ -1,0 +1,4 @@
+=== Fluent Bit Stress & Drift Test Started ===
+TIME            CPU(%)     RSS(KB)    TOTAL_JSON_LINES_WRITTEN 
+[ERROR] Fluent Bit process died unexpectedly under stress!
+=== Stress Test Completed ===
