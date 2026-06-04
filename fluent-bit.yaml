@@ -45,8 +45,8 @@ pipeline:
     - name: record_modifier
       match: "*"
       records:
-        - resource_id: ${INSTANCE_ID}
-          project_id: ${PROJECT_ID}
+        resource_id: ${INSTANCE_ID}
+        project_id: ${PROJECT_ID}
 
     # 외부 lua 코드로 데이터를 정제합니다
     - name: lua
@@ -68,6 +68,6 @@ pipeline:
       uri: /v1/metrics
       format: json
       headers:
-        - Content-Type: application/json
+        Content-Type: application/json
     # 송신 실패 시 재시도 횟수도 설정할 수 있습니다
       #retry_limit: 5
