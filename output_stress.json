@@ -1,0 +1,45 @@
+Fluent Bit v5.0.6
+* Copyright (C) 2015-2026 The Fluent Bit Authors
+* Fluent Bit is a CNCF graduated project under the Fluent organization
+* https://fluentbit.io
+
+______ _                  _    ______ _ _           _____  _____ 
+|  ___| |                | |   | ___ (_) |         |  ___||  _  |
+| |_  | |_   _  ___ _ __ | |_  | |_/ /_| |_  __   _|___ \ | |/' |
+|  _| | | | | |/ _ \ '_ \| __| | ___ \ | __| \ \ / /   \ \|  /| |
+| |   | | |_| |  __/ | | | |_  | |_/ / | |_   \ V //\__/ /\ |_/ /
+\_|   |_|\__,_|\___|_| |_|\__| \____/|_|\__|   \_/ \____(_)\___/
+
+
+{"date":1780574077.245309,"cpu_p":51.5,"user_p":34.0,"system_p":17.5,"cpu0.p_cpu":51.5,"cpu0.p_user":34.0,"cpu0.p_system":17.5}
+{"date":1780574079.245309,"cpu_p":99.5,"user_p":81.5,"system_p":18.0,"cpu0.p_cpu":99.5,"cpu0.p_user":81.5,"cpu0.p_system":18.0}
+{"date":1780574081.245501,"cpu_p":99.5,"user_p":86.5,"system_p":13.0,"cpu0.p_cpu":99.5,"cpu0.p_user":86.5,"cpu0.p_system":13.0}
+{"date":1780574083.245769,"cpu_p":100.0,"user_p":82.5,"system_p":17.5,"cpu0.p_cpu":100.0,"cpu0.p_user":82.5,"cpu0.p_system":17.5}
+{"date":1780574085.24545,"cpu_p":99.5,"user_p":97.0,"system_p":2.5,"cpu0.p_cpu":99.5,"cpu0.p_user":97.0,"cpu0.p_system":2.5}
+{"date":1780574087.245312,"cpu_p":100.5,"user_p":99.0,"system_p":1.5,"cpu0.p_cpu":100.5,"cpu0.p_user":99.0,"cpu0.p_system":1.5}
+{"date":1780574089.245289,"cpu_p":100.0,"user_p":100.0,"system_p":0.0,"cpu0.p_cpu":100.0,"cpu0.p_user":100.0,"cpu0.p_system":0.0}
+{"date":1780574091.245336,"cpu_p":99.5,"user_p":99.5,"system_p":0.0,"cpu0.p_cpu":99.5,"cpu0.p_user":99.5,"cpu0.p_system":0.0}
+{"date":1780574093.245645,"cpu_p":100.0,"user_p":83.5,"system_p":16.5,"cpu0.p_cpu":100.0,"cpu0.p_user":83.5,"cpu0.p_system":16.5}
+{"date":1780574095.245285,"cpu_p":99.5,"user_p":85.0,"system_p":14.5,"cpu0.p_cpu":99.5,"cpu0.p_user":85.0,"cpu0.p_system":14.5}
+{"date":1780574097.245296,"cpu_p":100.5,"user_p":70.5,"system_p":30.0,"cpu0.p_cpu":100.5,"cpu0.p_user":70.5,"cpu0.p_system":30.0}
+{"date":1780574099.245271,"cpu_p":99.5,"user_p":84.5,"system_p":15.0,"cpu0.p_cpu":99.5,"cpu0.p_user":84.5,"cpu0.p_system":15.0}
+{"date":1780574101.24542,"cpu_p":100.5,"user_p":85.0,"system_p":15.5,"cpu0.p_cpu":100.5,"cpu0.p_user":85.0,"cpu0.p_system":15.5}
+{"date":1780574103.245404,"cpu_p":99.5,"user_p":82.5,"system_p":17.0,"cpu0.p_cpu":99.5,"cpu0.p_user":82.5,"cpu0.p_system":17.0}
+{"date":1780574105.245336,"cpu_p":100.0,"user_p":85.0,"system_p":15.0,"cpu0.p_cpu":100.0,"cpu0.p_user":85.0,"cpu0.p_system":15.0}
+{"date":1780574107.245424,"cpu_p":100.0,"user_p":96.5,"system_p":3.5,"cpu0.p_cpu":100.0,"cpu0.p_user":96.5,"cpu0.p_system":3.5}
+{"date":1780574109.245341,"cpu_p":100.0,"user_p":82.0,"system_p":18.0,"cpu0.p_cpu":100.0,"cpu0.p_user":82.0,"cpu0.p_system":18.0}
+{"date":1780574111.245275,"cpu_p":99.5,"user_p":98.5,"system_p":1.0,"cpu0.p_cpu":99.5,"cpu0.p_user":98.5,"cpu0.p_system":1.0}
+{"date":1780574113.245275,"cpu_p":100.0,"user_p":76.0,"system_p":24.0,"cpu0.p_cpu":100.0,"cpu0.p_user":76.0,"cpu0.p_system":24.0}
+{"date":1780574115.246709,"cpu_p":100.0,"user_p":81.5,"system_p":18.5,"cpu0.p_cpu":100.0,"cpu0.p_user":81.5,"cpu0.p_system":18.5}
+{"date":1780574117.245269,"cpu_p":100.0,"user_p":76.0,"system_p":24.0,"cpu0.p_cpu":100.0,"cpu0.p_user":76.0,"cpu0.p_system":24.0}
+{"date":1780574119.245258,"cpu_p":99.5,"user_p":99.0,"system_p":0.5,"cpu0.p_cpu":99.5,"cpu0.p_user":99.0,"cpu0.p_system":0.5}
+{"date":1780574121.245342,"cpu_p":100.0,"user_p":84.0,"system_p":16.0,"cpu0.p_cpu":100.0,"cpu0.p_user":84.0,"cpu0.p_system":16.0}
+{"date":1780574123.245269,"cpu_p":100.0,"user_p":99.0,"system_p":1.0,"cpu0.p_cpu":100.0,"cpu0.p_user":99.0,"cpu0.p_system":1.0}
+{"date":1780574125.245281,"cpu_p":100.0,"user_p":100.0,"system_p":0.0,"cpu0.p_cpu":100.0,"cpu0.p_user":100.0,"cpu0.p_system":0.0}
+{"date":1780574127.246232,"cpu_p":99.5,"user_p":99.0,"system_p":0.5,"cpu0.p_cpu":99.5,"cpu0.p_user":99.0,"cpu0.p_system":0.5}
+{"date":1780574129.24654,"cpu_p":100.0,"user_p":99.5,"system_p":0.5,"cpu0.p_cpu":100.0,"cpu0.p_user":99.5,"cpu0.p_system":0.5}
+{"date":1780574131.245273,"cpu_p":100.0,"user_p":93.0,"system_p":7.000000000000001,"cpu0.p_cpu":100.0,"cpu0.p_user":93.0,"cpu0.p_system":7.0}
+{"date":1780574133.245398,"cpu_p":100.0,"user_p":90.5,"system_p":9.5,"cpu0.p_cpu":100.0,"cpu0.p_user":90.5,"cpu0.p_system":9.5}
+{"date":1780574135.245786,"cpu_p":100.0,"user_p":99.5,"system_p":0.5,"cpu0.p_cpu":100.0,"cpu0.p_user":99.5,"cpu0.p_system":0.5}
+[2026/06/04 11:55:37] [engine] caught signal (SIGTERM)
+{"date":1780574137.245466,"cpu_p":72.0,"user_p":70.5,"system_p":1.5,"cpu0.p_cpu":72.0,"cpu0.p_user":70.5,"cpu0.p_system":1.5}

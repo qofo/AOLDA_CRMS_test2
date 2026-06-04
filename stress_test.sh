@@ -31,10 +31,8 @@ cat << 'EOF' > fluent-bit-stress.conf
     Interval_Sec    2
 
 [OUTPUT]
-    Name            file
+    Name            stdout
     Match           *
-    Path            ./
-    File            output_stress.json
     Format          json_lines
 EOF
 
@@ -43,14 +41,16 @@ rm -f output_stress.json
 
 # 3. Start Fluent Bit in the background
 echo "Starting Fluent Bit..."
-/opt/fluent-bit/bin/fluent-bit -c fluent-bit-stress.conf > /dev/null 2>&1 &
+/opt/fluent-bit/bin/fluent-bit -c fluent-bit-stress.conf > output_stress.json 2>&1 &
 FLUENT_PID=$!
 
 # 4. Inject load using stress-ng
 # WHY 500M? On a 1GB VM, allocating more might trigger the Linux OOM Killer.
 # This command maxes out 1 CPU core and consumes 500MB of memory for 60 seconds.
 echo "Injecting load (CPU 100%, 500MB Memory) for 60 seconds..."
-stress-ng --cpu 1 --vm 1 --vm-bytes 500M --timeout 60s > /dev/null 2>&1 &
+#stress--ng --vm 1 --vm-bytes 50M --timeout 60s > /dev/null 2>&1 &
+stress-ng --cpu 1 --cpu-load 100 --vm 1 --vm-bytes 500M --timeout 60s > /dev/null 2>&1 &
+
 STRESS_PID=$!
 
 # Print the header for monitoring
@@ -82,6 +82,5 @@ done
 # 6. Clean up processes
 echo "Cleaning up processes..."
 kill $FLUENT_PID 2>/dev/null
-rm -f fluent-bit-stress.conf
 
 echo "=== Stress Test Completed ===" | tee -a $LOG_FILE

@@ -1,4 +1,6 @@
 === Fluent Bit Stress & Drift Test Started ===
+Starting Fluent Bit...
+Injecting load (CPU 100%, 500MB Memory) for 60 seconds...
 TIME            CPU(%)     RSS(KB)    TOTAL_JSON_LINES_WRITTEN 
 11:54:41        0.1        15156      15 lines                 
 11:54:46        0.1        15156      17 lines                 
@@ -12,4 +14,5 @@ TIME            CPU(%)     RSS(KB)    TOTAL_JSON_LINES_WRITTEN
 11:55:27        0.0        15160      38 lines                 
 11:55:32        0.0        15160      40 lines                 
 11:55:37        0.0        15160      43 lines                 
+Cleaning up processes...
 === Stress Test Completed ===
