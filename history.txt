@@ -1,0 +1,250 @@
+    1  ls
+    2  curl -u admin: http://192.168.0.121:8041/v1/status
+    3  docker ps
+    4  curl -u admin: http://192.168.0.121:8041/v1/status
+    5  history
+    6  cd
+    7  ls
+    8  cd AOLDA_CRMS_test/
+    9  ls
+   10  ls -al
+   11  ./stress_test.sh 2>&1 &
+   12  ls -al
+   13  vi crms_test.conf
+   14  vi crms_test.sh
+   15  ls -al
+   16  vi run_benchmark.sh 
+   17  vi crms_test.conf
+   18  ./run_benchmark.sh 
+   19  vi run_benchmark.sh 
+   20  ./run_benchmark.sh 
+   21  vi run_benchmark.sh 
+   22  ls -al
+   23  vi soak_test_v3.sh 
+   24  vi crms_test.conf 
+   25  ./soak_test_v3.sh 
+   26  ./soak_test_v3.sh &
+   27  top
+   28  vi soak_test_v3.sh 
+   29  more telegraf_soak_v3.log 
+   30  ls -al
+   31  more soak_test_v3.sh 
+   32  ps
+   33  kill 14819
+   34  kill 14822
+   35  ./soak_test_v3.sh > log.txt 2>&1 &
+   36  ls -al
+   37  more log.txt 
+   38  ls -al
+   39  top
+   40  ls -al
+   41  top
+   42  ls -al
+   43  more soak_test_v3_result.log 
+   44  ps
+   45  kill 14850
+   46  kill 14853
+   47  cd ..
+   48  git clone https://github.com/qofo/AOLDA_CRMS_test2
+   49  ls
+   50  ls -al
+   51  more AOLDA_CRMS_test2
+   52  ls
+   53  cd AOLDA_CRMS_test2
+   54  ls
+   55  git remote -v
+   56  lsb-release
+   57  lsb-releasee -a
+   58  lsb-release -a
+   59  lsb_release -a
+   60  sudo apt update && sudo apt install -y curl gpg
+   61  curl -fsSL https://fluentbit.io | sudo ggpg --dearmor -d /usr/share/keyrings/fluentbit-keyring.gpg
+   62  curl -fsSL https://fluentbit.io | sudo gpg --dearmor -d /usr/share/keyrings/fluentbit-keyring.gpg
+   63  curl -fsSL https://fluentbit.io | sudo gpg --dearmor -o /usr/share/keyrings/fluentbit-keyring.gpg
+   64  echo "deb [signed-by=/usr/share/keyrings/fluentbit-keyring.gpg] https:///fluentbit.io noble main" | sudo tee /etc/apt/sources.list..d/fluent-bit.list
+   65  echo "deb [signed-by=/usr/share/keyrings/fluentbit-keyring.gpg] https:///fluentbit.io noble main" | sudo tee /etc/apt/sources.list.d/fluent-bit.list
+   66  sudo apt update
+   67  top
+   68  llllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllllls
+   69  ls
+   70  cd AOLDA_CRMS_test2
+   71  git status
+   72  git log
+   73  git pull origin
+   74  ls
+   75  export INSTANCE_ID="test-instance-uuid-1234"
+   76  export PROJECT_ID="test-project-uuid-5678"
+   77  fluent-bit -c fluent-bit.conf
+   78  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf
+   79  ls
+   80  mv normal.lua normalize.lua
+   81  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf
+   82  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf > log.txt 2>&1 &
+   83  top
+   84  ps
+   85  kill 1081
+   86  ps
+   87  top
+   88  more log.txt 
+   89  git status
+   90  git add *
+   91  git commit -m "mv normalize.lua,  add log.txt"
+   92  git push
+   93  git pull
+   94  ls
+   95  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf > log2.txt 2>&1 &
+   96  top
+   97  ps
+   98  kill 1141
+   99  ls -al
+  100  git status
+  101  git add *
+  102  git commit -m "add log2.txt"
+  103  git push
+  104  python --version
+  105  python3 --version
+  106  curl -X GET http://192.168.0.121:8041/v1/metrics
+  107  curl -X GET http://192.168.0.121:8080/v1/metrics
+  108  curl -X POST http://192.168.0.121:8080/v1/metrics
+  109  curl -X POST http://192.168.0.121:8080/v1/metrics -H "Content-Type: application/json" -d '{
+"resource": {
+"type": "instance",
+"project_id": "test-project",
+"id": "test-instance-1234",
+},
+"metric": {
+"type": "gauge",
+"name": "guest.cpu.util",
+"unit": "percent"
+},
+"measure": {
+"timestamp": 1123123,
+"value":23.4
+}
+}'
+  110  curl -X POST http://192.168.0.121:8080/v1/metrics -H "Content-Type: application/json" -d '{
+"resource": {
+"type": "instance",
+"project_id": "test-project",
+"id": "test-instance-1234"
+},
+"metric": {
+"type": "gauge",
+"name": "guest.cpu.util",
+"unit": "percent"
+},
+"measure": {
+"timestamp": 1780490063.302,
+"value":23.4
+}
+}'
+  111  curl -X POST http://192.168.0.121:8080/v1/metrics -H "Content-Type: application/json" -d '{
+"resource": {
+"type": "instance",
+"project_id": "test-project",
+"id": "test-instance-1235"
+},
+"metric": {
+"type": "gauge",
+"name": "guest.cpu.util",
+"unit": "percent"
+},
+"measure": {
+"timestamp": 1780490064.302,
+"value":23.5
+}
+}'
+  112  git pull
+  113  ps
+  114  $INSTANCE_ID
+  115  echo $INSTANCE_ID
+  116  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf > log2.txt 2>&1 &
+  117  top
+  118  curl -X POST http://192.168.0.121:8080/v1/metrics -H "Content-Type: application/json" -d '{
+"resource": {
+"type": "instance",
+"project_id": "test-project",
+"id": "test-instance-1235"
+},
+"metric": {
+"type": "gauge",
+"name": "guest.cpu.util",
+"unit": "percent"
+},
+"measure": {
+"timestamp": 1780490064.302,
+"value":23.5
+}
+}'
+  119  curl -X POST http://192.168.0.121:8080/v1/metrics -H "Content-Type: application/json" -d '{
+"resource": {
+"type": "instance",
+"project_id": "test-project",
+"id": "test-instance-1235"
+},
+"metric": {
+"type": "gauge",
+"name": "guest.cpu.util",
+"unit": "percent"
+},
+"measure": {
+"timestamp": 1780490064.302,
+"value":23.5
+}
+}'
+  120  ps
+  121  ls -al
+  122  tail log2.txt 
+  123  ps
+  124  kill 1458
+  125  ls
+  126  vi fluent-bit.conf 
+  127  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf > log2.txt 2>&1 &
+  128  tail -f log2.txt 
+  129  vi fluent-bit.conf 
+  130  ps
+  131  kill 1484
+  132  ps
+  133  git status
+  134  git add *
+  135  vi fluent-bit.conf 
+  136  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf > log3.txt 2>&1 &
+  137  tail -f log3.txt 
+  138  vi fluent-bit.conf 
+  139  ps
+  140  kill 1520
+  141  /opt/fluent-bit/bin/fluent-bit -c fluent-bit.conf > log3.txt 2>&1 &
+  142  tail -f log3.txt 
+  143  ps
+  144  kill 1529
+  145  git pull
+  146  git status
+  147  git pull
+  148  ls -al
+  149  chmod +x soak_test.sh 
+  150  ./soak_test.sh > soak_log.txt 2>&1 &
+  151  ps
+  152  top
+  153  ls -al
+  154  tail soak_log.txt 
+  155  tail fluent_soak_output.log 
+  156  tail fluent_soak_test_result.log 
+  157  top
+  158  tail fluent_soak_test_result.log 
+  159  top
+  160  ls
+  161  top
+  162  qls -al
+  163  ls -al
+  164  df
+  165  df -Pg
+  166  df -h
+  167  du -su
+  168  du -sh
+  169  ncdu
+  170  sudo apt clean
+  171  df -h
+  172  ls -alh
+  173  top
+  174  history
+  175  history > history.txt
