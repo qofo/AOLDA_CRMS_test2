@@ -44,9 +44,9 @@ pipeline:
     # 여기서는 리소스ID와 프로젝트ID를 측정값에 추가하기 위해 사용했습니다
     - name: record_modifier
       match: "*"
-      records:
-        resource_id: ${INSTANCE_ID}
-        project_id: ${PROJECT_ID}
+      record:
+      - resource_id ${INSTANCE_ID}
+      - project_id ${PROJECT_ID}
 
     # 외부 lua 코드로 데이터를 정제합니다
     - name: lua
@@ -60,14 +60,13 @@ pipeline:
     # - name: stdout
     #   match: "*"
     #   format: json_lines
-    
     - name: http
       match: "*"
       host: 192.168.0.121
       port: 8080
       uri: /v1/metrics
       format: json
-      headers:
-        Content-Type: application/json
+      header:
+        - Content-Type application/json
     # 송신 실패 시 재시도 횟수도 설정할 수 있습니다
       #retry_limit: 5
