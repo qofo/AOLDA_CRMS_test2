@@ -1,0 +1,83 @@
+# ==============================================================================
+# CRMS Agent Configuration (Fluent Bit YAML Format)
+# Architect: crms-team
+# Description: YAML-based lightweight telemetry agent with strict constraints 
+#              (60s flush, disk-backed queue, PSK authentication).
+# ==============================================================================
+
+service:
+  # [CRITICAL] 60초 주기 강제. 네트워크 대역폭 및 Gateway 병목을 방지합니다.
+  flush: 60
+  daemon: off
+  log_level: info
+  
+  # --- Storage & Reliability Engine (디스크 기반 버퍼링) ---
+  # Gateway 장애 시 메모리 포화(OOM)와 데이터 증발을 막기 위해 디스크에 임시 저장합니다.
+  storage.path: /var/log/crms-agent-buffer
+  storage.sync: normal
+  storage.checksum: off
+  # Agent가 VM 메모리를 과도하게 점유하지 않도록 큐의 메모리 제한을 5MB로 둡니다.
+  storage.backlog.mem_limit: 5M
+
+# ==============================================================================
+# 1. 수집 단계 (Inputs) - Whitelisted Guest Metrics Only
+# ==============================================================================
+pipeline:
+  inputs:
+    - name: cpu
+      tag: guest.cpu
+      interval_sec: 60
+
+    - name: mem
+      tag: guest.memory
+      interval_sec: 60
+
+    - name: netif
+      tag: guest.net
+      interval_sec: 60
+      interface: ens3
+
+    - name: disk
+      tag: guest.disk
+      interval_sec: 60
+
+# ==============================================================================
+# 2. 필터 단계 (Filters) - Metadata Injection & Normalization
+# ==============================================================================
+  filters:
+    # 환경 변수에서 인스턴스 ID와 프로젝트 ID를 추출하여 데이터에 주입합니다.
+    - name: record_modifier
+      match: "*"
+      record:
+        - resource_id ${INSTANCE_ID}
+        - project_id ${PROJECT_ID}
+
+    # Lua 스크립트를 호출하여 백엔드(Gnocchi) 종속성을 제거한 CRMS 표준 스키마로 가공합니다.
+    - name: lua
+      match: "*"
+      script: normalize.lua
+      call: format_to_crms_schema
+
+# ==============================================================================
+# 3. 출력 단계 (Outputs) - Stateless Delivery to Gateway
+# ==============================================================================
+  outputs:
+    - name: http
+      match: "*"
+      # Gateway 서버 IP 및 API 엔드포인트
+      host: 192.168.0.222
+      port: 8080
+      uri: /v1/metrics
+      format: json
+      header:
+        - Content-Type application/json
+        # [보안 통제] Gateway의 접근 권한을 통과하기 위한 에이전트 토큰
+        - X-Auth-Token crms-secret-token-v1
+      
+      # --- Resilience Policy (장애 복구 정책) ---
+      # false로 설정 시 Gateway가 응답하지 않아도 데이터를 포기하지 않고 무한 재시도합니다.
+      retry_limit: false
+      
+      # [SAFETY LIMIT] 장기간 네트워크 단절 시 VM의 디스크가 꽉 차는 것을 방지하기 위해
+      # 버퍼 디스크 크기를 최대 100MB로 엄격히 제한합니다.
+      storage.total_limit_size: 100M
