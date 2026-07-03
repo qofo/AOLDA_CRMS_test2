@@ -1,6 +1,6 @@
 # AOLDA_CRMS_test_fluentbit
 
-Fluent Bit를 이용하여 시스템 메트릭(CPU, Memory, Disk, Network)을 수집하고, CRMS(Common Resource Monitoring Schema) 형식으로 정규화한 후 HTTP Gateway로 전송하는 예제 프로젝트입니다.
+Fluent Bit를 이용하여 시스템 메트릭(CPU, Memory, Disk, Network)을 수집하고, 정규화한 후 Gateway로 전송하는 예제 프로젝트입니다.
 
 또한 실제 운영 환경에서 발생할 수 있는 다양한 상황을 가정하여 Buffer Test, Stress Test, Soak Test를 수행할 수 있는 테스트 스크립트를 제공합니다.
 
@@ -148,7 +148,7 @@ CPU와 Memory에 높은 부하를 발생시켜 Fluent Bit의 안정성을 확인
 
 다음 환경을 기준으로 테스트되었습니다.
 
-* Linux
+* Linux Ubuntu 24.04
 * Fluent Bit
 * Lua Filter
 * stress-ng
