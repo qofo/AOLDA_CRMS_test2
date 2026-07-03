@@ -1,4 +1,0 @@
-=== Fluent Bit Deep Soak Test Started ===
-Monitoring RSS (Memory) and CPU usage to detect memory leaks.
-Fluent Bit started with PID: 4452
-TIMESTAMP                 CPU(%)     RSS(KB)   
